@@ -62,6 +62,10 @@ final class ViewController: UITableViewController {
 final class LiveCell: UITableViewCell {
     let songLabel = UILabel() ※ {
         $0.textColor = .black
+        $0.numberOfLines = 0
+    }
+    let artworkView = UIImageView() ※ {
+        $0.contentMode = .scaleAspectFill
     }
     let episodeLabel = UILabel() ※ {
         $0.textColor = .lightGray
@@ -79,18 +83,28 @@ final class LiveCell: UITableViewCell {
 
         let autolayout = northLayoutFormat([:], [
             "song": songLabel,
+            "artwork": artworkView,
             "episode": episodeLabel,
             "coord": coordLabel])
-        autolayout("H:||[song]||")
-        autolayout("H:||[episode]||")
-        autolayout("H:||[coord]")
+        autolayout("H:|[artwork(==64)]-[song]||")
+        autolayout("H:[artwork]-[episode]||")
+        autolayout("H:[artwork]-[coord]-(>=0)-||")
         autolayout("V:||[song]-[episode]-[coord]||")
+        autolayout("V:||[artwork(==64)]-(>=0)-||")
     }
     required init?(coder aDecoder: NSCoder) {fatalError()}
 
     func setLive(_ live: Live) {
-        songLabel.text = live.song.title
+        songLabel.text = "\(live.song.title)\(live.MD.title.map {" — MD " + $0} ?? "")"
         episodeLabel.text = "\(live.episode.series) 第\(live.episode.number)話 \(live.episode.title ?? "")"
         coordLabel.text = live.coordinate.first?.name
+
+        let query = MPMediaQuery.songs()
+        query.addFilterPredicate(MPMediaPropertyPredicate(value: live.song.title, forProperty: MPMediaItemPropertyTitle))
+        if let matched = query.items?.first {
+            artworkView.image = matched.artwork?.image(at: CGSize(width: 64, height: 64))
+        } else {
+            artworkView.image = nil
+        }
     }
 }
