@@ -4,6 +4,7 @@ import Ikemen
 import ReactiveSwift
 import ReactiveCocoa
 import Differ
+import MediaPlayer
 
 final class ViewController: UITableViewController {
     private let viewModel = ViewModel()
@@ -48,6 +49,18 @@ final class ViewController: UITableViewController {
         let live = viewModel.lives.value[indexPath.row]
         cell.setLive(live)
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let song = viewModel.lives.value[indexPath.row].song
+
+        guard let allSongs = MPMediaQuery.songs().items else { return }
+        guard let matched = (allSongs.first {$0.title == song.title}) else { return }
+        let player = MPMusicPlayerController.iPodMusicPlayer
+        player.setQueue(with: .init(items: [matched]))
+        player.nowPlayingItem = matched
+        player.play()
     }
 }
 

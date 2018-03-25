@@ -13,7 +13,7 @@
 		EAF6745F206768EA006AC4A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAF6745E206768EA006AC4A6 /* Assets.xcassets */; };
 		EAF67462206768EA006AC4A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF67460206768EA006AC4A6 /* LaunchScreen.storyboard */; };
 		EAF6747020676BA5006AC4A6 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF6746F20676BA5006AC4A6 /* Song.swift */; };
-		EAF67474206774EF006AC4A6 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = EAF67473206774EE006AC4A6 /* main.json */; };
+		EAF6747820677C2A006AC4A6 /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = EAF6747720677C2A006AC4A6 /* main.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +26,7 @@
 		EAF67461206768EA006AC4A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAF67463206768EA006AC4A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAF6746F20676BA5006AC4A6 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
-		EAF67473206774EE006AC4A6 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
+		EAF6747720677C2A006AC4A6 /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		F244CDF7EC27864AEDB93356 /* Pods_PriparaDB_song_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PriparaDB_song_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -86,7 +86,7 @@
 				EAF6745E206768EA006AC4A6 /* Assets.xcassets */,
 				EAF67460206768EA006AC4A6 /* LaunchScreen.storyboard */,
 				EAF67463206768EA006AC4A6 /* Info.plist */,
-				EAF67473206774EE006AC4A6 /* main.json */,
+				EAF6747720677C2A006AC4A6 /* main.json */,
 			);
 			path = "PriparaDB-song-ios";
 			sourceTree = "<group>";
@@ -160,9 +160,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAF6747820677C2A006AC4A6 /* main.json in Resources */,
 				EAF67462206768EA006AC4A6 /* LaunchScreen.storyboard in Resources */,
 				EAF6745F206768EA006AC4A6 /* Assets.xcassets in Resources */,
-				EAF67474206774EF006AC4A6 /* main.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
