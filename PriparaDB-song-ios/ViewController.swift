@@ -24,7 +24,7 @@ final class ViewController: UITableViewController {
             guard let filter = filter, !filter.isEmpty else { return lives }
             return lives.filter {
                 $0.song.title.range(of: filter, options: [.caseInsensitive, .widthInsensitive]) != nil ||
-                    $0.MD.title?.range(of: filter, options: [.caseInsensitive, .widthInsensitive]) != nil ||
+                    $0.MD?.title?.range(of: filter, options: [.caseInsensitive, .widthInsensitive]) != nil ||
                     $0.coordinate.contains {$0.name.range(of: filter, options: [.caseInsensitive, .widthInsensitive]) != nil}
             }
         }
@@ -128,7 +128,7 @@ final class LiveCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {fatalError()}
 
     func setLive(_ live: Live) {
-        songLabel.text = "\(live.song.title)\(live.MD.title.map {" — MD " + $0} ?? "")"
+        songLabel.text = "\(live.song.title)\(live.MD?.title.map {" — MD " + $0} ?? "")"
         artworkView.image = librarySongByTitle(live.song.title)?.artwork?.image(at: CGSize(width: 64, height: 64))
         episodeLabel.text = "\(live.episode.series) 第\(live.episode.number)話 \(live.episode.title ?? "")"
         coordsView.removeAllTags()

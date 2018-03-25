@@ -103,12 +103,84 @@
                 "character":"真中らぁら",
                 "name":"ワンダーランドマカロン",
                 "brand":"twinkle ribbon"
-                          },
-                          {
-                          "character":"南 みれぃ",
-                          "name":"ワンダーランドラビット",
-                          "brand":"twinkle ribbon"
-                          }
+              }
+            ]
+        },
+             {
+             "episode":{
+             "series":"プリパラ",
+             "title":"チーム解散？困るクマ～！",
+             "number":3
+             },
+             "start_at":"20:00",
+             "end_at":"23:00",
+             "team":{
+             "name":"そふぃ",
+             "members":[
+                        "北条そふぃ"]
+             },
+             "song":{
+             "title":"太陽のflare sherbet",
+             "team":{
+             "name":"そふぃ",
+             "members":[
+                        "北条そふぃ"]
+             }
+             },
+             "coordinate":[
+                           {
+                           "character":"北条そふぃ",
+                           "name":"ホワイトスワン",
+                           "brand":"HolicTrick"
+                           }
+                           ]
+             },
+        {
+            "episode":{
+                "series":"プリパラ",
+                "title":"異議あり？らぁらがウチにやってきたっぷり！",
+                "number":6
+            },
+            "start_at":"20:00",
+            "end_at":"23:00",
+            "team":{
+                "name":"らぁら & みれぃ",
+                "members":[
+                    "真中 らぁら",
+                    "南 みれぃ"
+                ]
+            },
+            "song":{
+              "title":"ま～ぶるMake up a-ha-ha!",
+              "team":{
+                "name":"らぁら & みれぃ",
+                "members":[
+                    "真中 らぁら",
+                    "南 みれぃ"
+                ]
+              }
+            },
+            "MD":{
+              "title":"もぎたてスイーツパーク",
+              "team":{
+                "name":"らぁら & みれぃ",
+                "members":[
+                    "真中 らぁら",
+                    "南 みれぃ"
+                ]
+              }
+            },
+            "coordinate":[
+              {
+                "character":"南 みれぃ",
+                "name":"もぎたてライム",
+                "brand":"Candy Alamode"
+              },
+              {
+                "character":"真中らぁら",
+                "name":"もぎたてオレンジ",
+                "brand":"Candy Alamode"
+              }
             ]
         }
     ]

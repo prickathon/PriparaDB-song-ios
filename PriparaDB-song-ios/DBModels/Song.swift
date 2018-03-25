@@ -8,7 +8,7 @@ struct Live: Codable, Equatable {
     var episode: Episode
     var team: Team
     var song: Song
-    var MD: MakingDrama
+    var MD: MakingDrama?
     var coordinate: [Coordinate]
 
     static func == (lhs: Live, rhs: Live) -> Bool {
