@@ -1,0 +1,6 @@
+framework module Pods_PriparaDB_song_ios {
+  umbrella header "Pods-PriparaDB-song-ios-umbrella.h"
+
+  export *
+  module * { export * }
+}

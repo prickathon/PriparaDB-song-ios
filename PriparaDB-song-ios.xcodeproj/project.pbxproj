@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC484CF69FDBF2702F84F9BA /* Pods_PriparaDB_song_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F244CDF7EC27864AEDB93356 /* Pods_PriparaDB_song_ios.framework */; };
 		EAF67458206768E5006AC4A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF67457206768E5006AC4A6 /* AppDelegate.swift */; };
 		EAF6745A206768E5006AC4A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF67459206768E5006AC4A6 /* ViewController.swift */; };
 		EAF6745D206768E5006AC4A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAF6745B206768E5006AC4A6 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC52E0C23D6D69A862C10DAF /* Pods-PriparaDB-song-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PriparaDB-song-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-PriparaDB-song-ios/Pods-PriparaDB-song-ios.release.xcconfig"; sourceTree = "<group>"; };
+		E3B244830BD320953EB4CD85 /* Pods-PriparaDB-song-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PriparaDB-song-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PriparaDB-song-ios/Pods-PriparaDB-song-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		EAF67454206768E5006AC4A6 /* PriparaDB-song-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PriparaDB-song-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF67457206768E5006AC4A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAF67459206768E5006AC4A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		EAF6745E206768EA006AC4A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EAF67461206768EA006AC4A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EAF67463206768EA006AC4A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F244CDF7EC27864AEDB93356 /* Pods_PriparaDB_song_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PriparaDB_song_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC484CF69FDBF2702F84F9BA /* Pods_PriparaDB_song_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3285F3A7A68AC3696035A750 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E3B244830BD320953EB4CD85 /* Pods-PriparaDB-song-ios.debug.xcconfig */,
+				CC52E0C23D6D69A862C10DAF /* Pods-PriparaDB-song-ios.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C929E6520B01719A165B6C2B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F244CDF7EC27864AEDB93356 /* Pods_PriparaDB_song_ios.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EAF6744B206768E5006AC4A6 = {
 			isa = PBXGroup;
 			children = (
 				EAF67456206768E5006AC4A6 /* PriparaDB-song-ios */,
 				EAF67455206768E5006AC4A6 /* Products */,
+				3285F3A7A68AC3696035A750 /* Pods */,
+				C929E6520B01719A165B6C2B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EAF67466206768EA006AC4A6 /* Build configuration list for PBXNativeTarget "PriparaDB-song-ios" */;
 			buildPhases = (
+				7E45D5ED7B311F75DBDEA628 /* [CP] Check Pods Manifest.lock */,
 				EAF67450206768E5006AC4A6 /* Sources */,
 				EAF67451206768E5006AC4A6 /* Frameworks */,
 				EAF67452206768E5006AC4A6 /* Resources */,
+				0BE28CB2570B7B92B2BAB47E /* [CP] Embed Pods Frameworks */,
+				BD965FB2D7DA180CE3524253 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,70 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0BE28CB2570B7B92B2BAB47E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PriparaDB-song-ios/Pods-PriparaDB-song-ios-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FootlessParser/FootlessParser.framework",
+				"${BUILT_PRODUCTS_DIR}/NorthLayout/NorthLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/※ikemen/Ikemen.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FootlessParser.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NorthLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Ikemen.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PriparaDB-song-ios/Pods-PriparaDB-song-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E45D5ED7B311F75DBDEA628 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PriparaDB-song-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD965FB2D7DA180CE3524253 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PriparaDB-song-ios/Pods-PriparaDB-song-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EAF67450206768E5006AC4A6 /* Sources */ = {
@@ -278,15 +369,14 @@
 		};
 		EAF67467206768EA006AC4A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3B244830BD320953EB4CD85 /* Pods-PriparaDB-song-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FPZK4WRGW7;
 				INFOPLIST_FILE = "PriparaDB-song-ios/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.banjun.PriparaDB-song-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -296,15 +386,14 @@
 		};
 		EAF67468206768EA006AC4A6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC52E0C23D6D69A862C10DAF /* Pods-PriparaDB-song-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FPZK4WRGW7;
 				INFOPLIST_FILE = "PriparaDB-song-ios/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.banjun.PriparaDB-song-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
