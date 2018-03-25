@@ -5,4 +5,5 @@ target 'PriparaDB-song-ios' do
   pod 'NorthLayout'
   pod '※ikemen'
   pod 'ReactiveCocoa'
+  pod 'Differ'
 end

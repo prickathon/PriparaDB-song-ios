@@ -134,6 +134,7 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Differ/Differ.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FootlessParser/FootlessParser.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/NorthLayout/NorthLayout.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework"
@@ -142,6 +143,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/※ikemen/Ikemen.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Differ/Differ.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/FootlessParser/FootlessParser.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/NorthLayout/NorthLayout.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework"
