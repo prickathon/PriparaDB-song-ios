@@ -6,6 +6,12 @@ import ReactiveCocoa
 import Differ
 import MediaPlayer
 
+func librarySongByTitle(_ title: String) -> MPMediaItem? {
+    let query = MPMediaQuery.songs()
+    query.addFilterPredicate(MPMediaPropertyPredicate(value: title, forProperty: MPMediaItemPropertyTitle))
+    return query.items?.first
+}
+
 final class ViewController: UITableViewController {
     private let viewModel = ViewModel()
     private class ViewModel {
@@ -49,13 +55,17 @@ final class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let song = viewModel.lives.value[indexPath.row].song
-
-        guard let allSongs = MPMediaQuery.songs().items else { return }
-        guard let matched = (allSongs.first {$0.title == song.title}) else { return }
-        let player = MPMusicPlayerController.iPodMusicPlayer
-        player.setQueue(with: .init(items: [matched]))
-        player.nowPlayingItem = matched
-        player.play()
+        if let mediaItem = librarySongByTitle(song.title) {
+            let ac = UIAlertController(title: "\(song.title)を再生", message: mediaItem.artist, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
+            ac.addAction(UIAlertAction(title: "再生", style: .default, handler: {_ in
+                let player = MPMusicPlayerController.iPodMusicPlayer
+                player.setQueue(with: .init(items: [mediaItem]))
+                player.nowPlayingItem = mediaItem
+                player.play()
+            }))
+            present(ac, animated: true)
+        }
     }
 }
 
@@ -96,15 +106,8 @@ final class LiveCell: UITableViewCell {
 
     func setLive(_ live: Live) {
         songLabel.text = "\(live.song.title)\(live.MD.title.map {" — MD " + $0} ?? "")"
+        artworkView.image = librarySongByTitle(live.song.title)?.artwork?.image(at: CGSize(width: 64, height: 64))
         episodeLabel.text = "\(live.episode.series) 第\(live.episode.number)話 \(live.episode.title ?? "")"
         coordLabel.text = live.coordinate.first?.name
-
-        let query = MPMediaQuery.songs()
-        query.addFilterPredicate(MPMediaPropertyPredicate(value: live.song.title, forProperty: MPMediaItemPropertyTitle))
-        if let matched = query.items?.first {
-            artworkView.image = matched.artwork?.image(at: CGSize(width: 64, height: 64))
-        } else {
-            artworkView.image = nil
-        }
     }
 }
