@@ -7,7 +7,7 @@ import SVProgressHUD
 import BrightFutures
 import Result
 
-private let livesURL = URL(string: "https://prickathon.github.io/webapi-mock-up/main.json")!
+private let livesURL = URL(string: "https://script.google.com/macros/s/AKfycbwWHf9CWY1cH7qe7wyieLkXzbxgIaglJzasyZqomwavm000res/exec")!
 private let dbFileURL = URL(fileURLWithPath: NSHomeDirectory())
     .appendingPathComponent("Library")
     .appendingPathComponent("dbMaster.json")

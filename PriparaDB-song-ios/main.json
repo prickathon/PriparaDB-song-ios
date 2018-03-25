@@ -1,5 +1,5 @@
 {
-    "live":[
+    "lives":[
         {
             "episode":{
                 "series":"プリパラ",
@@ -37,7 +37,7 @@
             },
             "coordinate":[
               {
-                "chara":"真中らぁら",
+                "character":"真中らぁら",
                 "name":"キューティーリボン",
                 "tops":{
                   "id":"A-001",
@@ -100,7 +100,7 @@
             },
             "coordinate":[
               {
-                "chara":"真中らぁら",
+                "character":"真中らぁら",
                 "name":"ワンダーランドマカロン",
                 "brand":"twinkle ribbon"
               }

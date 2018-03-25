@@ -1,7 +1,7 @@
 import Foundation
 
 struct EndpointLives: Codable {
-    var live: [Live]
+    var lives: [Live]
 }
 
 struct Live: Codable, Equatable {
@@ -46,7 +46,7 @@ struct MakingDrama: Codable {
 }
 
 struct Coordinate: Codable {
-    var chara: String
+    var character: String
     var name: String
     var brand: String?
 }

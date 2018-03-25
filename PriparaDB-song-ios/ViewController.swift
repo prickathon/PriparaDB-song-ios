@@ -15,7 +15,7 @@ func librarySongByTitle(_ title: String) -> MPMediaItem? {
 final class ViewController: UITableViewController {
     private let viewModel = ViewModel()
     private class ViewModel {
-        let lives: Property<[Live]> = Property<EndpointLives>(capturing: DBMaster.sharedLives).map {$0.live}
+        let lives: Property<[Live]> = Property<EndpointLives>(capturing: DBMaster.sharedLives).map {$0.lives}
         private(set) lazy var songs: Property<[Song]> = Property<[Live]>(capturing: lives).map {$0.compactMap {$0.song}}
     }
 
