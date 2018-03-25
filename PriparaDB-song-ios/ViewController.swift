@@ -1,25 +1,23 @@
-//
-//  ViewController.swift
-//  PriparaDB-song-ios
-//
-//  Created by BAN Jun on 2018/03/25.
-//  Copyright © 2018 BAN Jun. All rights reserved.
-//
-
 import UIKit
+import NorthLayout
+import Ikemen
+import ReactiveSwift
+import ReactiveCocoa
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
+    private let viewModel = ViewModel()
+    private class ViewModel {
+        let lives: MutableProperty<[Live]>
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        init() {
+            let d = try! Data(contentsOf: Bundle.main.url(forResource: "main", withExtension: "json")!)
+            lives = .init(try! JSONDecoder().decode(EndpointLives.self, from: d).live)
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        title = "Pripara DB"
     }
-
-
+    required init?(coder aDecoder: NSCoder) {fatalError()}
 }
-
