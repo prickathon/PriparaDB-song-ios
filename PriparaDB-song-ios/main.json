@@ -35,7 +35,7 @@
                 ]
               }
             },
-            "coordinate":[
+            "coordinates":[
               {
                 "character":"真中らぁら",
                 "name":"キューティーリボン",
@@ -98,7 +98,7 @@
                 ]
               }
             },
-            "coordinate":[
+            "coordinates":[
               {
                 "character":"真中らぁら",
                 "name":"ワンダーランドマカロン",
@@ -127,7 +127,7 @@
                         "北条そふぃ"]
              }
              },
-             "coordinate":[
+             "coordinates":[
                            {
                            "character":"北条そふぃ",
                            "name":"ホワイトスワン",
@@ -170,7 +170,7 @@
                 ]
               }
             },
-            "coordinate":[
+            "coordinates":[
               {
                 "character":"南 みれぃ",
                 "name":"もぎたてライム",

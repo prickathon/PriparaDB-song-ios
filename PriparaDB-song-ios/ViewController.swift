@@ -25,7 +25,7 @@ final class ViewController: UITableViewController {
             return lives.filter {
                 $0.song.title.range(of: filter, options: [.caseInsensitive, .widthInsensitive]) != nil ||
                     $0.MD?.title?.range(of: filter, options: [.caseInsensitive, .widthInsensitive]) != nil ||
-                    $0.coordinate.contains {$0.name.range(of: filter, options: [.caseInsensitive, .widthInsensitive]) != nil}
+                    $0.coordinates.contains {$0.name.range(of: filter, options: [.caseInsensitive, .widthInsensitive]) != nil}
             }
         }
     }
@@ -132,7 +132,7 @@ final class LiveCell: UITableViewCell {
         artworkView.image = librarySongByTitle(live.song.title)?.artwork?.image(at: CGSize(width: 64, height: 64))
         episodeLabel.text = "\(live.episode.series) 第\(live.episode.number)話 \(live.episode.title ?? "")"
         coordsView.removeAllTags()
-        coordsView.addTags(live.coordinate.map {$0.name}).forEach {
+        coordsView.addTags(live.coordinates.map {$0.name}).forEach {
             $0.tagBackgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
         }
     }
