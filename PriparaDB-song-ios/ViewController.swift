@@ -19,7 +19,7 @@ final class ViewController: UITableViewController {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        title = "Pripara DB"
+        title = "Pripara DB (ライブ)"
     }
     required init?(coder aDecoder: NSCoder) {fatalError()}
 
