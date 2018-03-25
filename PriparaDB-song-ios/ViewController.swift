@@ -26,11 +26,12 @@ final class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(SongCell.self, forCellReuseIdentifier: String(describing: SongCell.self))
+        tableView.register(LiveCell.self, forCellReuseIdentifier: String(describing: LiveCell.self))
 
-        viewModel.songs.producer
+        // viewModel.songs.producer
+        viewModel.lives.producer
             .combinePrevious([]).startWithValues {[unowned self] a, b in
-                self.tableView.animateRowChanges(oldData: a.map {$0.title}, newData: b.map {$0.title})
+                self.tableView.animateRowChanges(oldData: a, newData: b)
         }
     }
 
@@ -43,27 +44,45 @@ final class ViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: SongCell.self), for: indexPath) as! SongCell
-        let s = viewModel.songs.value[indexPath.row]
-        cell.setSong(s)
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: LiveCell.self), for: indexPath) as! LiveCell
+        let live = viewModel.lives.value[indexPath.row]
+        cell.setLive(live)
         return cell
     }
 }
 
-final class SongCell: UITableViewCell {
-    let titleLabel = UILabel() ※ {_ in
+final class LiveCell: UITableViewCell {
+    let songLabel = UILabel() ※ {
+        $0.textColor = .black
+    }
+    let episodeLabel = UILabel() ※ {
+        $0.textColor = .lightGray
+        $0.numberOfLines = 0
+    }
+    let coordLabel = UILabel() ※ { // TODO: collections
+        $0.textColor = .white
+        $0.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        $0.layer.cornerRadius = 4
+        $0.clipsToBounds = true
     }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        let autolayout = northLayoutFormat([:], ["title": titleLabel])
-        autolayout("H:||[title]||")
-        autolayout("V:||[title]||")
+        let autolayout = northLayoutFormat([:], [
+            "song": songLabel,
+            "episode": episodeLabel,
+            "coord": coordLabel])
+        autolayout("H:||[song]||")
+        autolayout("H:||[episode]||")
+        autolayout("H:||[coord]")
+        autolayout("V:||[song]-[episode]-[coord]||")
     }
     required init?(coder aDecoder: NSCoder) {fatalError()}
 
-    func setSong(_ song: Song) {
-        titleLabel.text = song.title
+    func setLive(_ live: Live) {
+        songLabel.text = live.song.title
+        episodeLabel.text = "\(live.episode.series) 第\(live.episode.number)話 \(live.episode.title ?? "")"
+        coordLabel.text = live.coordinate.first?.name
     }
 }
