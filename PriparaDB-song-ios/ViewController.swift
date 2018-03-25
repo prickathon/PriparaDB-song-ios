@@ -18,7 +18,19 @@ final class ViewController: UITableViewController {
     private class ViewModel {
         let lives: Property<[Live]> = Property<EndpointLives>(capturing: DBMaster.sharedLives).map {$0.lives}
         private(set) lazy var songs: Property<[Song]> = Property<[Live]>(capturing: lives).map {$0.compactMap {$0.song}}
+
+        let filter = MutableProperty<String?>(nil)
+        private(set) lazy var filteredLives: Property<[Live]> = Property.combineLatest(lives, filter).map { lives, filter -> [Live] in
+            guard let filter = filter, !filter.isEmpty else { return lives }
+            return lives.filter {
+                $0.song.title.range(of: filter, options: [.caseInsensitive, .widthInsensitive]) != nil ||
+                    $0.MD.title?.range(of: filter, options: [.caseInsensitive, .widthInsensitive]) != nil ||
+                    $0.coordinate.contains {$0.name.range(of: filter, options: [.caseInsensitive, .widthInsensitive]) != nil}
+            }
+        }
     }
+
+    let searchController = UISearchController(searchResultsController: nil)
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -29,10 +41,16 @@ final class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if #available(iOS 11.0, *) {
+            navigationItem.searchController = searchController
+        }
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+
         tableView.register(LiveCell.self, forCellReuseIdentifier: String(describing: LiveCell.self))
 
         // viewModel.songs.producer
-        viewModel.lives.producer
+        viewModel.filteredLives.producer
             .combinePrevious([]).startWithValues {[unowned self] a, b in
                 self.tableView.animateRowChanges(oldData: a, newData: b)
         }
@@ -43,19 +61,19 @@ final class ViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.lives.value.count
+        return viewModel.filteredLives.value.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: LiveCell.self), for: indexPath) as! LiveCell
-        let live = viewModel.lives.value[indexPath.row]
+        let live = viewModel.filteredLives.value[indexPath.row]
         cell.setLive(live)
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let song = viewModel.lives.value[indexPath.row].song
+        let song = viewModel.filteredLives.value[indexPath.row].song
         if let mediaItem = librarySongByTitle(song.title) {
             let ac = UIAlertController(title: "\(song.title)を再生", message: mediaItem.artist, preferredStyle: .alert)
             ac.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
@@ -67,6 +85,12 @@ final class ViewController: UITableViewController {
             }))
             present(ac, animated: true)
         }
+    }
+}
+
+extension ViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        viewModel.filter.value = searchController.searchBar.text
     }
 }
 
