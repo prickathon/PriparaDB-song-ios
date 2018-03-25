@@ -9,13 +9,8 @@ import MediaPlayer
 final class ViewController: UITableViewController {
     private let viewModel = ViewModel()
     private class ViewModel {
-        let lives: MutableProperty<[Live]>
+        let lives: Property<[Live]> = Property<EndpointLives>(capturing: DBMaster.sharedLives).map {$0.live}
         private(set) lazy var songs: Property<[Song]> = Property<[Live]>(capturing: lives).map {$0.compactMap {$0.song}}
-
-        init() {
-            let d = try! Data(contentsOf: Bundle.main.url(forResource: "main", withExtension: "json")!)
-            lives = .init(try! JSONDecoder().decode(EndpointLives.self, from: d).live)
-        }
     }
 
     init() {
@@ -41,7 +36,7 @@ final class ViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.songs.value.count
+        return viewModel.lives.value.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

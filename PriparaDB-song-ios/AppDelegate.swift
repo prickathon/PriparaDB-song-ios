@@ -1,12 +1,20 @@
 import UIKit
+import Ikemen
+import SVProgressHUD
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        SVProgressHUD.setDefaultMaskType(.black)
+
         let window = UIWindow()
-        window.rootViewController = UINavigationController(rootViewController: ViewController())
+        window.rootViewController = UITabBarController() ※ {
+            $0.viewControllers = [
+                UINavigationController(rootViewController: ViewController()),
+                UINavigationController(rootViewController: SettingsViewController())]
+        }
         window.makeKeyAndVisible()
         self.window = window
         return true

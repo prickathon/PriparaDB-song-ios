@@ -6,4 +6,7 @@ target 'PriparaDB-song-ios' do
   pod '※ikemen'
   pod 'ReactiveCocoa'
   pod 'Differ'
+  pod 'SVProgressHUD'
+  pod 'Eureka', git: 'https://github.com/xmartlabs/Eureka.git', branch: 'master'
+  pod 'BrightFutures'
 end

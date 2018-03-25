@@ -1,5 +1,8 @@
 PODS:
+  - BrightFutures (6.0.0):
+    - Result (~> 3.2.4)
   - Differ (1.0.3)
+  - Eureka (4.1.1)
   - FootlessParser (0.4.1)
   - NorthLayout (5.0.0):
     - FootlessParser (~> 0.4)
@@ -8,23 +11,40 @@ PODS:
   - ReactiveSwift (3.1.0):
     - Result (~> 3.2)
   - Result (3.2.4)
+  - SVProgressHUD (2.2.2)
   - ※ikemen (0.5.0)
 
 DEPENDENCIES:
+  - BrightFutures
   - Differ
+  - Eureka (from `https://github.com/xmartlabs/Eureka.git`, branch `master`)
   - NorthLayout
   - ReactiveCocoa
+  - SVProgressHUD
   - ※ikemen
 
+EXTERNAL SOURCES:
+  Eureka:
+    :branch: master
+    :git: https://github.com/xmartlabs/Eureka.git
+
+CHECKOUT OPTIONS:
+  Eureka:
+    :commit: 420a701277c1afe4bda86fb156bd76c977a588a2
+    :git: https://github.com/xmartlabs/Eureka.git
+
 SPEC CHECKSUMS:
+  BrightFutures: 9e7604f511aed9f0d6a49b04ac9b3fca6b117758
   Differ: 0c220ac75542f5f17f91b1303b85bf07d871ecd7
+  Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
   FootlessParser: 4705a9a740675b7439d9563f2fad83f7b84fc773
   NorthLayout: 718fecaf16d90c82788e452b1280ff3d39c193c5
   ReactiveCocoa: 105ad96f6b8711f1ee7d165fc96587479298053b
   ReactiveSwift: 5b26d2e988fe0eed2daf48c4054d1de74db50184
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
   ※ikemen: 0cf85af52790db21a846ad31abca356e99da1ffb
 
-PODFILE CHECKSUM: cbff66c3ae470d35b73737f61bce9114f44936c3
+PODFILE CHECKSUM: c65b606c95c62ea82d3d7782397b82bec79ecbe6
 
 COCOAPODS: 1.4.0
