@@ -143,6 +143,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Result/Result.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/※ikemen/Ikemen.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -155,6 +156,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Result/Result.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/※ikemen/Ikemen.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

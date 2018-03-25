@@ -5,6 +5,7 @@ import ReactiveSwift
 import ReactiveCocoa
 import Differ
 import MediaPlayer
+import TagListView
 
 func librarySongByTitle(_ title: String) -> MPMediaItem? {
     let query = MPMediaQuery.songs()
@@ -81,11 +82,9 @@ final class LiveCell: UITableViewCell {
         $0.textColor = .lightGray
         $0.numberOfLines = 0
     }
-    let coordLabel = UILabel() ※ { // TODO: collections
-        $0.textColor = .white
-        $0.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
-        $0.layer.cornerRadius = 4
-        $0.clipsToBounds = true
+    let coordsView = TagListView(frame: .zero) ※ {
+        $0.cornerRadius = 4
+        $0.textFont = .systemFont(ofSize: 14)
     }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -95,12 +94,12 @@ final class LiveCell: UITableViewCell {
             "song": songLabel,
             "artwork": artworkView,
             "episode": episodeLabel,
-            "coord": coordLabel])
-        autolayout("H:|[artwork(==64)]-[song]||")
+            "coord": coordsView])
+        autolayout("H:||[artwork(==64)]-[song]||")
         autolayout("H:[artwork]-[episode]||")
-        autolayout("H:[artwork]-[coord]-(>=0)-||")
-        autolayout("V:||[song]-[episode]-[coord]||")
-        autolayout("V:||[artwork(==64)]-(>=0)-||")
+        autolayout("H:||[coord]||")
+        autolayout("V:||[song]-[episode]-(>=8)-[coord]||")
+        autolayout("V:||[artwork(==64)]-(>=8)-[coord]||")
     }
     required init?(coder aDecoder: NSCoder) {fatalError()}
 
@@ -108,6 +107,9 @@ final class LiveCell: UITableViewCell {
         songLabel.text = "\(live.song.title)\(live.MD.title.map {" — MD " + $0} ?? "")"
         artworkView.image = librarySongByTitle(live.song.title)?.artwork?.image(at: CGSize(width: 64, height: 64))
         episodeLabel.text = "\(live.episode.series) 第\(live.episode.number)話 \(live.episode.title ?? "")"
-        coordLabel.text = live.coordinate.first?.name
+        coordsView.removeAllTags()
+        coordsView.addTags(live.coordinate.map {$0.name}).forEach {
+            $0.tagBackgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        }
     }
 }

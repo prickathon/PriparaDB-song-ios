@@ -9,4 +9,5 @@ target 'PriparaDB-song-ios' do
   pod 'SVProgressHUD'
   pod 'Eureka', git: 'https://github.com/xmartlabs/Eureka.git', branch: 'master'
   pod 'BrightFutures'
+  pod 'TagListView'
 end
