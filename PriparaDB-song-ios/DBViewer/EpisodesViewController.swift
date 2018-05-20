@@ -4,6 +4,7 @@ import CodableFirebase
 import ReactiveCocoa
 import ReactiveSwift
 import BigDiffer
+import Ikemen
 
 struct SeriesSection: BigDiffableSection, RandomAccessCollection {
     var series: Series
@@ -29,12 +30,12 @@ final class EpisodesViewController: UITableViewController {
             errors = .init([])
         }
 
-        func fetch() {
-            Database.shared.ref.child("episodes").observe(.value) { [weak self] snapshot in
-                guard let `self` = self, let value = snapshot.value else { return }
-                do {
-                    let episodes = try FirebaseDecoder().decode([String: Episode].self, from: value)
-                    let grouped: [SeriesSection] = episodes.values.reduce(into: []) { result, next in
+        func observe() {
+            Database.shared.episodes { [weak self] r in
+                guard let `self` = self else { return }
+                switch r {
+                case .success(let episodes):
+                    let grouped: [SeriesSection] = episodes.reduce(into: []) { result, next in
                         if let i = (result.index {$0.series.name == next.series}) {
                             result[i] = SeriesSection(series: Series(name: next.series, start_at: nil, end_at: nil),
                                                       episodes: (result[i].episodes + [next]).sorted {$0.number < $1.number})
@@ -43,7 +44,7 @@ final class EpisodesViewController: UITableViewController {
                         }
                     }
                     self.series.value = grouped.sorted {$0.series.name < $1.series.name}
-                } catch {
+                case .failure(let error):
                     self.errors.value.append(error as NSError)
                 }
             }
@@ -73,7 +74,7 @@ final class EpisodesViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewmodel.fetch()
+        viewmodel.observe()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -81,7 +82,12 @@ final class EpisodesViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewmodel.series.value[section].series.name
+        let key = viewmodel.series.value[section].series.name
+        Database.shared.series(key: key) { [weak self] r in
+            guard let `self` = self, let value = r.value, let series = value else { return }
+            self.viewmodel.series.value[section].series = series
+        }
+        return key
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -96,13 +102,8 @@ final class EpisodesViewController: UITableViewController {
 }
 
 final class EpisodeCell: UITableViewCell {
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-        textLabel?.numberOfLines = 0
-    }
-    
     func configure(_ episode: Episode) {
+        textLabel?.numberOfLines = 0
         textLabel?.text = "#\(episode.number) \(episode.title ?? "")"
     }
 }

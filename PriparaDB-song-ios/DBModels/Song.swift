@@ -53,8 +53,8 @@ struct Coordinate: Codable {
 
 struct Series: Codable {
     var name: String
-    var start_at: Date?
-    var end_at: Date?
+    var start_at: String?
+    var end_at: String?
 }
 
 // MARK: - Diffable

@@ -24,13 +24,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-
-import FirebaseDatabase
-
-final class Database {
-    static let shared = Database()
-    let ref = FirebaseDatabase.Database.database().reference()
-
-    private init() {
-    }
-}
