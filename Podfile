@@ -13,4 +13,5 @@ target 'PriparaDB-song-ios' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'CodableFirebase'
+  pod 'BigDiffer'
 end

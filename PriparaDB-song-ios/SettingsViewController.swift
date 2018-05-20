@@ -31,6 +31,10 @@ final class SettingsViewController: FormViewController {
         $0.title = "DB更新"
         $0.onCellSelection {[unowned self] _, _ in self.updateDB()}
     }
+    private lazy var dbViewerButtonRow: ButtonRow = .init() {
+        $0.title = "Firebase DB Viewer"
+        $0.onCellSelection {[unowned self] _, _ in self.showDBViewer()}
+    }
 
     init() {
         super.init(style: .grouped)
@@ -39,6 +43,8 @@ final class SettingsViewController: FormViewController {
         form +++ Section()
         <<< dbLastUpdatedRow
         <<< dbUpdateButtonRow
+        +++ Section()
+        <<< dbViewerButtonRow
     }
     required init?(coder aDecoder: NSCoder) {fatalError()}
 
@@ -81,6 +87,10 @@ final class SettingsViewController: FormViewController {
                 ac.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(ac, animated: true)
         }
+    }
+
+    func showDBViewer() {
+        show(EpisodesViewController(), sender: nil)
     }
 
     enum Error: Swift.Error {
