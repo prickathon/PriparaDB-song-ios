@@ -11,4 +11,6 @@ target 'PriparaDB-song-ios' do
   pod 'BrightFutures'
   pod 'TagListView'
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'CodableFirebase'
 end
