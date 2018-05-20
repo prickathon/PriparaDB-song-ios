@@ -3,7 +3,29 @@ PODS:
     - Result (~> 3.2.4)
   - Differ (1.0.3)
   - Eureka (4.1.1)
+  - Firebase/Core (5.0.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 5.0.0)
+  - Firebase/CoreOnly (5.0.0):
+    - FirebaseCore (= 5.0.0)
+  - FirebaseAnalytics (5.0.0):
+    - FirebaseCore (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - nanopb (~> 0.3)
+  - FirebaseCore (5.0.0):
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseInstanceID (3.0.0):
+    - FirebaseCore (~> 5.0)
   - FootlessParser (0.4.1)
+  - GoogleToolboxForMac/Defines (2.1.4)
+  - GoogleToolboxForMac/NSData+zlib (2.1.4):
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
   - NorthLayout (5.0.0):
     - FootlessParser (~> 0.4)
   - ReactiveCocoa (7.1.0):
@@ -19,6 +41,7 @@ DEPENDENCIES:
   - BrightFutures
   - Differ
   - Eureka (from `https://github.com/xmartlabs/Eureka.git`, branch `master`)
+  - Firebase/Core
   - NorthLayout
   - ReactiveCocoa
   - SVProgressHUD
@@ -39,7 +62,13 @@ SPEC CHECKSUMS:
   BrightFutures: 9e7604f511aed9f0d6a49b04ac9b3fca6b117758
   Differ: 0c220ac75542f5f17f91b1303b85bf07d871ecd7
   Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
+  Firebase: 4bd804448ab2596794698773d41520a0af101e65
+  FirebaseAnalytics: 19812b49fa5f283dd6b23edf8a14b5d477029ab8
+  FirebaseCore: e46e4babb9de298fb2f736958edcc6da1dc60d73
+  FirebaseInstanceID: 83e0040351565df711a5db3d8ebe5ea21aca998a
   FootlessParser: 4705a9a740675b7439d9563f2fad83f7b84fc773
+  GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
+  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   NorthLayout: 718fecaf16d90c82788e452b1280ff3d39c193c5
   ReactiveCocoa: 105ad96f6b8711f1ee7d165fc96587479298053b
   ReactiveSwift: 5b26d2e988fe0eed2daf48c4054d1de74db50184
@@ -48,6 +77,6 @@ SPEC CHECKSUMS:
   TagListView: 669f7d4455003c877655875d34829731c4191528
   ※ikemen: 0cf85af52790db21a846ad31abca356e99da1ffb
 
-PODFILE CHECKSUM: faab88ba23fc63db7ddb2cb3632bca9d99f7e4bb
+PODFILE CHECKSUM: 53df7fc1fa5819df18091cc3fe6ecd80281cbda0
 
 COCOAPODS: 1.4.0
