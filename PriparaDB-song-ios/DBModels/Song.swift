@@ -50,3 +50,17 @@ struct Coordinate: Codable {
     var name: String
     var brand: String?
 }
+
+struct Series: Codable {
+    var name: String
+    var start_at: String?
+    var end_at: String?
+}
+
+// MARK: - Diffable
+
+import BigDiffer
+
+extension String: Diffable {public var diffIdentifier: AnyHashable {return hashValue}}
+extension Series: Diffable {var diffIdentifier: AnyHashable {return name.diffIdentifier}}
+extension Episode: Diffable {var diffIdentifier: AnyHashable {return String(describing: self).diffIdentifier}}

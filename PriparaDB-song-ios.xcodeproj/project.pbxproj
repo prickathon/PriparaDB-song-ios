@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CC484CF69FDBF2702F84F9BA /* Pods_PriparaDB_song_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F244CDF7EC27864AEDB93356 /* Pods_PriparaDB_song_ios.framework */; };
+		EAD1057D20B11E50004CB32E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAD1057C20B11E4F004CB32E /* GoogleService-Info.plist */; };
+		EAD1057F20B14137004CB32E /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD1057E20B14137004CB32E /* EpisodesViewController.swift */; };
+		EAD1058220B17306004CB32E /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD1058120B17306004CB32E /* Database.swift */; };
 		EAF67458206768E5006AC4A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF67457206768E5006AC4A6 /* AppDelegate.swift */; };
 		EAF6745A206768E5006AC4A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF67459206768E5006AC4A6 /* ViewController.swift */; };
 		EAF6745F206768EA006AC4A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAF6745E206768EA006AC4A6 /* Assets.xcassets */; };
@@ -20,6 +23,9 @@
 /* Begin PBXFileReference section */
 		CC52E0C23D6D69A862C10DAF /* Pods-PriparaDB-song-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PriparaDB-song-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-PriparaDB-song-ios/Pods-PriparaDB-song-ios.release.xcconfig"; sourceTree = "<group>"; };
 		E3B244830BD320953EB4CD85 /* Pods-PriparaDB-song-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PriparaDB-song-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PriparaDB-song-ios/Pods-PriparaDB-song-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		EAD1057C20B11E4F004CB32E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EAD1057E20B14137004CB32E /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
+		EAD1058120B17306004CB32E /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Database.swift; path = "PriparaDB-song-ios/Database.swift"; sourceTree = SOURCE_ROOT; };
 		EAF67454206768E5006AC4A6 /* PriparaDB-song-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PriparaDB-song-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAF67457206768E5006AC4A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAF67459206768E5006AC4A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +67,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EAD1058020B1413E004CB32E /* DBViewer */ = {
+			isa = PBXGroup;
+			children = (
+				EAD1057E20B14137004CB32E /* EpisodesViewController.swift */,
+			);
+			path = DBViewer;
+			sourceTree = "<group>";
+		};
 		EAF6744B206768E5006AC4A6 = {
 			isa = PBXGroup;
 			children = (
@@ -85,10 +99,13 @@
 				EAF67457206768E5006AC4A6 /* AppDelegate.swift */,
 				EAF67459206768E5006AC4A6 /* ViewController.swift */,
 				EAF674792067838A006AC4A6 /* SettingsViewController.swift */,
+				EAD1058120B17306004CB32E /* Database.swift */,
+				EAD1058020B1413E004CB32E /* DBViewer */,
 				EAF6746E20676BA5006AC4A6 /* DBModels */,
 				EAF6745E206768EA006AC4A6 /* Assets.xcassets */,
 				EAF67460206768EA006AC4A6 /* LaunchScreen.storyboard */,
 				EAF67463206768EA006AC4A6 /* Info.plist */,
+				EAD1057C20B11E4F004CB32E /* GoogleService-Info.plist */,
 				EAF6747720677C2A006AC4A6 /* main.json */,
 			);
 			path = "PriparaDB-song-ios";
@@ -164,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAF6747820677C2A006AC4A6 /* main.json in Resources */,
+				EAD1057D20B11E50004CB32E /* GoogleService-Info.plist in Resources */,
 				EAF67462206768EA006AC4A6 /* LaunchScreen.storyboard in Resources */,
 				EAF6745F206768EA006AC4A6 /* Assets.xcassets in Resources */,
 			);
@@ -179,30 +197,42 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PriparaDB-song-ios/Pods-PriparaDB-song-ios-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BigDiffer/BigDiffer.framework",
 				"${BUILT_PRODUCTS_DIR}/BrightFutures/BrightFutures.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
 				"${BUILT_PRODUCTS_DIR}/Differ/Differ.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FootlessParser/FootlessParser.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/ListDiff/ListDiff.framework",
 				"${BUILT_PRODUCTS_DIR}/NorthLayout/NorthLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/※ikemen/Ikemen.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigDiffer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightFutures.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differ.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FootlessParser.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ListDiff.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NorthLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Ikemen.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,6 +280,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAD1058220B17306004CB32E /* Database.swift in Sources */,
+				EAD1057F20B14137004CB32E /* EpisodesViewController.swift in Sources */,
 				EAF6747020676BA5006AC4A6 /* Song.swift in Sources */,
 				EAF6745A206768E5006AC4A6 /* ViewController.swift in Sources */,
 				EAF67458206768E5006AC4A6 /* AppDelegate.swift in Sources */,
@@ -394,7 +426,10 @@
 				DEVELOPMENT_TEAM = FPZK4WRGW7;
 				INFOPLIST_FILE = "PriparaDB-song-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.banjun.PriparaDB-song-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -411,7 +446,10 @@
 				DEVELOPMENT_TEAM = FPZK4WRGW7;
 				INFOPLIST_FILE = "PriparaDB-song-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.banjun.PriparaDB-song-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

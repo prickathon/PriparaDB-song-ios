@@ -1,9 +1,46 @@
 PODS:
+  - BigDiffer (0.3.0):
+    - BigDiffer/BigDiffer (= 0.3.0)
+  - BigDiffer/BigDiffer (0.3.0):
+    - BigDiffer/Core
+    - ListDiff
+  - BigDiffer/Core (0.3.0)
   - BrightFutures (6.0.0):
     - Result (~> 3.2.4)
+  - CodableFirebase (0.0.12)
   - Differ (1.0.3)
   - Eureka (4.1.1)
+  - Firebase/Core (5.0.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 5.0.0)
+  - Firebase/CoreOnly (5.0.0):
+    - FirebaseCore (= 5.0.0)
+  - Firebase/Database (5.0.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (= 5.0.0)
+  - FirebaseAnalytics (5.0.0):
+    - FirebaseCore (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - nanopb (~> 0.3)
+  - FirebaseCore (5.0.0):
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseDatabase (5.0.0):
+    - FirebaseCore (~> 5.0)
+    - leveldb-library (~> 1.18)
+  - FirebaseInstanceID (3.0.0):
+    - FirebaseCore (~> 5.0)
   - FootlessParser (0.4.1)
+  - GoogleToolboxForMac/Defines (2.1.4)
+  - GoogleToolboxForMac/NSData+zlib (2.1.4):
+    - GoogleToolboxForMac/Defines (= 2.1.4)
+  - leveldb-library (1.20)
+  - ListDiff (0.1.0)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
   - NorthLayout (5.0.0):
     - FootlessParser (~> 0.4)
   - ReactiveCocoa (7.1.0):
@@ -16,9 +53,13 @@ PODS:
   - ※ikemen (0.5.0)
 
 DEPENDENCIES:
+  - BigDiffer
   - BrightFutures
+  - CodableFirebase
   - Differ
   - Eureka (from `https://github.com/xmartlabs/Eureka.git`, branch `master`)
+  - Firebase/Core
+  - Firebase/Database
   - NorthLayout
   - ReactiveCocoa
   - SVProgressHUD
@@ -36,10 +77,21 @@ CHECKOUT OPTIONS:
     :git: https://github.com/xmartlabs/Eureka.git
 
 SPEC CHECKSUMS:
+  BigDiffer: 269b84ed93472752af4d13b42f2c550b865aa951
   BrightFutures: 9e7604f511aed9f0d6a49b04ac9b3fca6b117758
+  CodableFirebase: 8d8690f06d6467e6457c67fb238acea8eca34a80
   Differ: 0c220ac75542f5f17f91b1303b85bf07d871ecd7
   Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
+  Firebase: 4bd804448ab2596794698773d41520a0af101e65
+  FirebaseAnalytics: 19812b49fa5f283dd6b23edf8a14b5d477029ab8
+  FirebaseCore: e46e4babb9de298fb2f736958edcc6da1dc60d73
+  FirebaseDatabase: 697eb53e5b4fe7cd4fa8756c1f82a9fca011345f
+  FirebaseInstanceID: 83e0040351565df711a5db3d8ebe5ea21aca998a
   FootlessParser: 4705a9a740675b7439d9563f2fad83f7b84fc773
+  GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
+  leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  ListDiff: 8a29c2ae3c8370cc989b6d6d50bb40d58c4e9ede
+  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   NorthLayout: 718fecaf16d90c82788e452b1280ff3d39c193c5
   ReactiveCocoa: 105ad96f6b8711f1ee7d165fc96587479298053b
   ReactiveSwift: 5b26d2e988fe0eed2daf48c4054d1de74db50184
@@ -48,6 +100,6 @@ SPEC CHECKSUMS:
   TagListView: 669f7d4455003c877655875d34829731c4191528
   ※ikemen: 0cf85af52790db21a846ad31abca356e99da1ffb
 
-PODFILE CHECKSUM: faab88ba23fc63db7ddb2cb3632bca9d99f7e4bb
+PODFILE CHECKSUM: 38344915f25c7e405d4ef187005455dc1a7e1b4b
 
 COCOAPODS: 1.4.0

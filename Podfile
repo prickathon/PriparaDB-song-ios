@@ -10,4 +10,8 @@ target 'PriparaDB-song-ios' do
   pod 'Eureka', git: 'https://github.com/xmartlabs/Eureka.git', branch: 'master'
   pod 'BrightFutures'
   pod 'TagListView'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'CodableFirebase'
+  pod 'BigDiffer'
 end

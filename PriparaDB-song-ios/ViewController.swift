@@ -6,6 +6,7 @@ import ReactiveCocoa
 import Differ
 import MediaPlayer
 import TagListView
+import CodableFirebase
 
 func librarySongByTitle(_ title: String) -> MPMediaItem? {
     let query = MPMediaQuery.songs()
@@ -53,6 +54,17 @@ final class ViewController: UITableViewController {
         viewModel.filteredLives.producer
             .combinePrevious([]).startWithValues {[unowned self] a, b in
                 self.tableView.animateRowChanges(oldData: a, newData: b)
+        }
+
+        Database.shared.ref.child("episodes").observeSingleEvent(of: .value) { snapshot in
+            print("\(String(describing: snapshot))")
+            guard let value = snapshot.value else { return }
+            do {
+                let episodes = try FirebaseDecoder().decode([String: Episode].self, from: value)
+                NSLog("%@", "episodes = \(episodes)")
+            } catch {
+                NSLog("%@", "error decoding db snapshot: \(error)")
+            }
         }
     }
 
